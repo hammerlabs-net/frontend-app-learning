@@ -1,7 +1,7 @@
 import { Factory } from 'rosie'; // eslint-disable-line import/no-extraneous-dependencies
 
 Factory.define('upgradeNotificationData')
-  .option('host', 'http://localhost:18000')
+  .option('host', 'http://localhost:1234/learning')
   .option('dateBlocks', [])
   .option('offer', null)
   .option('userTimezone', null)

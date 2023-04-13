@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { ProductTour } from '@edx/paragon';
 
+import { getAuthenticatedUser } from '../data/api';
 import abandonTour from './AbandonTour';
 import coursewareTour from './CoursewareTour';
 import existingUserCourseHomeTour from './ExistingUserCourseHomeTour';

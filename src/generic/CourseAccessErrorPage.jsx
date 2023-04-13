@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { LearningHeader as Header } from '@edx/frontend-component-header';
-import Footer from '@edx/frontend-component-footer';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
@@ -29,11 +27,9 @@ const CourseAccessErrorPage = ({ intl }) => {
   if (courseStatus === LOADING) {
     return (
       <>
-        <Header />
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
-        <Footer />
       </>
     );
   }
@@ -42,7 +38,6 @@ const CourseAccessErrorPage = ({ intl }) => {
   }
   return (
     <>
-      <Header />
       <main id="main-content" className="container my-5 text-center" data-testid="access-denied-main">
         <AlertList
           topic="outline"
@@ -52,7 +47,6 @@ const CourseAccessErrorPage = ({ intl }) => {
           }}
         />
       </main>
-      <Footer />
     </>
   );
 };

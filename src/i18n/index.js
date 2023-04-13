@@ -1,5 +1,3 @@
-import { messages as footerMessages } from '@edx/frontend-component-footer';
-import { messages as headerMessages } from '@edx/frontend-component-header';
 import { messages as paragonMessages } from '@edx/paragon';
 
 import arMessages from './messages/ar.json';
@@ -40,6 +38,4 @@ const appMessages = {
 export default [
   paragonMessages,
   appMessages,
-  footerMessages,
-  headerMessages,
 ];

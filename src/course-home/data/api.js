@@ -1,7 +1,6 @@
-import { camelCaseObject, getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
-import { logInfo } from '@edx/frontend-platform/logging';
+import { camelCaseObject } from '@edx/frontend-platform';
 import { appendBrowserTimezoneToUrl } from '../../utils';
+import { getAuthenticatedHttpClient, getConfig, logInfo } from '../../data/api';
 
 const calculateAssignmentTypeGrades = (points, assignmentWeight, numDroppable) => {
   let dropCount = numDroppable;
@@ -106,7 +105,9 @@ function normalizeCourseHomeCourseMetadata(metadata, rootSlug) {
       // use within the MFE to differentiate between course home and courseware.
       slug: tab.tabId === 'courseware' ? rootSlug : tab.tabId,
       title: tab.title,
-      url: tab.url,
+      // PILET CONVERT - THIS IS A HACK
+      // eslint-disable-next-line no-useless-escape
+      url: tab.url.replace(/^https?:\/\/[^\/]+\/courses?/, '/learning/course'),
     })),
     isMasquerading: data.originalUserIsStaff && !data.isStaff,
   };
@@ -187,7 +188,7 @@ export function normalizeOutlineBlocks(courseId, blocks) {
 }
 
 export async function getCourseHomeCourseMetadata(courseId, rootSlug) {
-  let url = `${getConfig().LMS_BASE_URL}/api/course_home/course_metadata/${courseId}`;
+  let url = `${await getConfig().LMS_BASE_URL}/api/course_home/course_metadata/${courseId}`;
   url = appendBrowserTimezoneToUrl(url);
   const { data } = await getAuthenticatedHttpClient().get(url);
   return normalizeCourseHomeCourseMetadata(data, rootSlug);

@@ -9,7 +9,6 @@ import reduxConfig from './data/module';
 
 import DiscussionTab from './course-home/discussion-tab/DiscussionTab';
 
-import appMessages from './i18n';
 import { UserMessagesProvider } from './generic/user-messages';
 import NoticesProvider from './generic/notices';
 import PathFixesProvider from './generic/path-fixes';
@@ -28,6 +27,7 @@ import { fetchCourse } from './courseware/data';
 import { fetchDiscussionTab, fetchLiveTab } from './course-home/data/thunks';
 import LiveTab from './course-home/live-tab/LiveTab';
 import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
+import appMessages from './i18n';
 
 const BASE_PATH = '/learning';
 
@@ -56,20 +56,10 @@ export function setup(piralApi) {
     TWITTER_URL: process.env.TWITTER_URL || null,
     LEGACY_THEME_NAME: process.env.LEGACY_THEME_NAME || null,
     EXAMS_BASE_URL: process.env.EXAMS_BASE_URL || null,
-    PROCTORED_EXAM_FAQ_URL: process.env.PROCTORED_EXAM_FAQ_URL || null,
-    PROCTORED_EXAM_RULES_URL: process.env.PROCTORED_EXAM_RULES_URL || null,
   }, 'LearnerAppConfig');
 
-  const platformApi = {
-    getAuthenticatedUser: piralApi.getAuthenticatedUser,
-    getAuthenticatedHttpClient: piralApi.getAuthenticatedHttpClient,
-    getConfig: piralApi.getConfig,
-    logInfo: piralApi.logInfo,
-    logError: piralApi.logError,
-  };
-
   const wrapApp = (pageComponent) => (
-    <DynamicModuleLoader modules={[reduxConfig(platformApi)]}>
+    <DynamicModuleLoader modules={[reduxConfig]}>
       <PathFixesProvider>
         <NoticesProvider>
           <UserMessagesProvider>
