@@ -3,7 +3,7 @@ import { Factory } from 'rosie'; // eslint-disable-line import/no-extraneous-dep
 Factory.define('tab')
   .option('courseId', 'course-v1:edX+DemoX+Demo_Course')
   .option('path', 'course/')
-  .option('host', 'http://localhost:18000')
+  .option('host', 'http://localhost:1234/learning')
   .attrs({
     title: 'Course',
     priority: 0,
