@@ -31,8 +31,6 @@ import LiveTab from './course-home/live-tab/LiveTab';
 import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
 import DecodePageRoute from './decode-page-route';
 
-import './index.scss';
-
 const BASE_PATH = '/learning';
 
 const piletSpec = {
@@ -71,9 +69,6 @@ const piletSpec = {
 };
 export default piletSpec;
 
-
-
-
 const AppView = () => (
   <PathFixesProvider>
     <NoticesProvider>
@@ -98,7 +93,7 @@ const AppView = () => (
           </TabContainer>
         </DecodePageRoute>
         <DecodePageRoute path={`${BASE_PATH}/course/:courseId/discussion/:path*`}>
-          <TabContainer tab="discussion" fetch={fetchDiscussionTab} slice="courseHome">
+          <TabContainer tab="discussion" fetch={fetchDiscussionTab} slice="courseHome"> 
             <DiscussionTab />
           </TabContainer>
         </DecodePageRoute>
