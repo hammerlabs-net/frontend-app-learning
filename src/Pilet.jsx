@@ -1,7 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import { DynamicModuleLoader } from 'redux-dynamic-modules-react';
+import { DynamicModuleLoader } from 'redux-dynamic-modules';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 

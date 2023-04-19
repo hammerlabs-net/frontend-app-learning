@@ -14,7 +14,6 @@
     "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx .",
-    "prepare": "husky install",
     "snapshot": "fedx-scripts jest --updateSnapshot",
     "start": "fedx-scripts webpack-dev-server --progress",
     "test": "fedx-scripts jest --coverage --passWithNoTests"
@@ -36,7 +35,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.3.0",
-    "redux-dynamic-modules-react": "^5.2.3"
+    "redux-dynamic-modules": "^5.2.3"
   },
   "dependencies": {
     "@edx/frontend-lib-special-exams": "~2.4.0",
