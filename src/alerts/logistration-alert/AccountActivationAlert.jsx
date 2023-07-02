@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
-import { getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import {
   AlertModal,
   Button,
@@ -12,6 +10,7 @@ import { Check, ArrowForward } from '@edx/paragon/icons';
 import { FormattedMessage, injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { sendActivationEmail } from '../../courseware/data';
 import messages from './messages';
+import { getConfig, getAuthenticatedUser } from '../../data/api';
 
 const AccountActivationAlert = ({
   intl,

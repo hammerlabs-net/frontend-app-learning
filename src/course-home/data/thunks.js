@@ -1,4 +1,3 @@
-import { logError } from '@edx/frontend-platform/logging';
 import { camelCaseObject } from '@edx/frontend-platform';
 import {
   executePostFromPostEvent,
@@ -13,6 +12,7 @@ import {
   postRequestCert,
   getLiveTabIframe,
 } from './api';
+import { logError } from '../../data/api';
 
 import {
   addModel,

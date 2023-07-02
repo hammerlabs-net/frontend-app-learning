@@ -31,117 +31,100 @@ import appMessages from './i18n';
 
 const BASE_PATH = '/learning';
 
-const piletSpec = {
-  name: 'openEdx Learning MFE - Pilet Version',
-  version: '1.0.0',
-  spec: 'v2',
-  dependencies: {},
-  config: {},
-  basePath: '/pilets',
-  setup(piralApi) {
-    piralApi.mergeMessages(appMessages);
+// eslint-disable-next-line import/prefer-default-export
+export function setup(piralApi) {
+  piralApi.mergeMessages(appMessages);
 
-    piralApi.mergeConfig({
-      CONTACT_URL: process.env.CONTACT_URL || null,
-      CREDENTIALS_BASE_URL: process.env.CREDENTIALS_BASE_URL || null,
-      CREDIT_HELP_LINK_URL: process.env.CREDIT_HELP_LINK_URL || null,
-      DISCUSSIONS_MFE_BASE_URL: process.env.DISCUSSIONS_MFE_BASE_URL || null,
-      ENTERPRISE_LEARNER_PORTAL_HOSTNAME: process.env.ENTERPRISE_LEARNER_PORTAL_HOSTNAME || null,
-      ENABLE_JUMPNAV: process.env.ENABLE_JUMPNAV || null,
-      ENABLE_NOTICES: process.env.ENABLE_NOTICES || null,
-      INSIGHTS_BASE_URL: process.env.INSIGHTS_BASE_URL || null,
-      SEARCH_CATALOG_URL: process.env.SEARCH_CATALOG_URL || null,
-      SOCIAL_UTM_MILESTONE_CAMPAIGN: process.env.SOCIAL_UTM_MILESTONE_CAMPAIGN || null,
-      STUDIO_BASE_URL: process.env.STUDIO_BASE_URL || null,
-      SUPPORT_URL: process.env.SUPPORT_URL || null,
-      SUPPORT_URL_CALCULATOR_MATH: process.env.SUPPORT_URL_CALCULATOR_MATH || null,
-      SUPPORT_URL_ID_VERIFICATION: process.env.SUPPORT_URL_ID_VERIFICATION || null,
-      SUPPORT_URL_VERIFIED_CERTIFICATE: process.env.SUPPORT_URL_VERIFIED_CERTIFICATE || null,
-      TERMS_OF_SERVICE_URL: process.env.TERMS_OF_SERVICE_URL || null,
-      TWITTER_HASHTAG: process.env.TWITTER_HASHTAG || null,
-      TWITTER_URL: process.env.TWITTER_URL || null,
-      LEGACY_THEME_NAME: process.env.LEGACY_THEME_NAME || null,
-      EXAMS_BASE_URL: process.env.EXAMS_BASE_URL || null,
-    }, 'LearnerAppConfig');
+  piralApi.mergeConfig({
+    CONTACT_URL: process.env.CONTACT_URL || null,
+    CREDENTIALS_BASE_URL: process.env.CREDENTIALS_BASE_URL || null,
+    CREDIT_HELP_LINK_URL: process.env.CREDIT_HELP_LINK_URL || null,
+    DISCUSSIONS_MFE_BASE_URL: process.env.DISCUSSIONS_MFE_BASE_URL || null,
+    ENTERPRISE_LEARNER_PORTAL_HOSTNAME: process.env.ENTERPRISE_LEARNER_PORTAL_HOSTNAME || null,
+    ENABLE_JUMPNAV: process.env.ENABLE_JUMPNAV || null,
+    ENABLE_NOTICES: process.env.ENABLE_NOTICES || null,
+    INSIGHTS_BASE_URL: process.env.INSIGHTS_BASE_URL || null,
+    SEARCH_CATALOG_URL: process.env.SEARCH_CATALOG_URL || null,
+    SOCIAL_UTM_MILESTONE_CAMPAIGN: process.env.SOCIAL_UTM_MILESTONE_CAMPAIGN || null,
+    STUDIO_BASE_URL: process.env.STUDIO_BASE_URL || null,
+    SUPPORT_URL: process.env.SUPPORT_URL || null,
+    SUPPORT_URL_CALCULATOR_MATH: process.env.SUPPORT_URL_CALCULATOR_MATH || null,
+    SUPPORT_URL_ID_VERIFICATION: process.env.SUPPORT_URL_ID_VERIFICATION || null,
+    SUPPORT_URL_VERIFIED_CERTIFICATE: process.env.SUPPORT_URL_VERIFIED_CERTIFICATE || null,
+    TERMS_OF_SERVICE_URL: process.env.TERMS_OF_SERVICE_URL || null,
+    TWITTER_HASHTAG: process.env.TWITTER_HASHTAG || null,
+    TWITTER_URL: process.env.TWITTER_URL || null,
+    LEGACY_THEME_NAME: process.env.LEGACY_THEME_NAME || null,
+    EXAMS_BASE_URL: process.env.EXAMS_BASE_URL || null,
+  }, 'LearnerAppConfig');
 
-    const wrapApp = (pageComponent) => (
-      <DynamicModuleLoader modules={[reduxConfig]}>
-        <PathFixesProvider>
-          <NoticesProvider>
-            <UserMessagesProvider>
-              {pageComponent()}
-            </UserMessagesProvider>
-          </NoticesProvider>
-        </PathFixesProvider>
-      </DynamicModuleLoader>
-    );
+  const wrapApp = (pageComponent) => (
+    <DynamicModuleLoader modules={[reduxConfig]}>
+      <PathFixesProvider>
+        <NoticesProvider>
+          <UserMessagesProvider>
+            {pageComponent()}
+          </UserMessagesProvider>
+        </NoticesProvider>
+      </PathFixesProvider>
+    </DynamicModuleLoader>
+  );
 
-    piralApi.registerPage(BASE_PATH, () => wrapApp(() => (
-      <div>
-        <h1>Welcome to Learning</h1>
-        <p>Go to <Link to="/learning/course/course-v1:edX+DemoX+Demo_Course/home">the default course</Link></p>
-      </div>
-    )));
-    piralApi.registerPage(`${BASE_PATH}/goal-unsubscribe/:token`, () => wrapApp(() => (
-      <GoalUnsubscribe />
-    )));
-    piralApi.registerPage(`${BASE_PATH}/redirect`, () => wrapApp(() => (
-      <CoursewareRedirectLandingPage />
-    )));
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/access-denied`, () => wrapApp(() => (
-      <CourseAccessErrorPage />
-    )));
+  piralApi.registerPage(BASE_PATH, () => wrapApp(() => (
+    <div style={{ margin: '1em' }}>
+      <h1>Welcome to Learning</h1>
+      <p>Go to <Link to="/learning/course/course-v1:edX+DemoX+Demo_Course/home">the default course</Link></p>
+    </div>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/goal-unsubscribe/:token`, () => wrapApp(() => (
+    <GoalUnsubscribe />
+  )));
+  piralApi.registerPage(`${BASE_PATH}/redirect`, () => wrapApp(() => (
+    <CoursewareRedirectLandingPage />
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/access-denied`, () => wrapApp(() => (
+    <CourseAccessErrorPage />
+  )));
 
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/home`, () => wrapApp(() => (
-      <TabContainer tab="outline" fetch={fetchOutlineTab} slice="courseHome">
-        <OutlineTab />
-      </TabContainer>
-    )));
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/live`, () => wrapApp(() => (
-      <TabContainer tab="lti_live" fetch={fetchLiveTab} slice="courseHome">
-        <LiveTab />
-      </TabContainer>
-    )));
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/dates`, () => wrapApp(() => (
-      <TabContainer tab="dates" fetch={fetchDatesTab} slice="courseHome">
-        <DatesTab />
-      </TabContainer>
-    )));
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/discussion/:path*`, () => wrapApp(() => (
-      <TabContainer tab="discussion" fetch={fetchDiscussionTab} slice="courseHome">
-        <DiscussionTab />
-      </TabContainer>
-    )));
-    piralApi.registerPage([
-      `${BASE_PATH}/course/:courseId/progress/:targetUserId/`,
-      `${BASE_PATH}/course/:courseId/progress`,
-    ], () => wrapApp(() => (
-      <React.Component
-        render={({ match }) => (
-          <TabContainer
-            tab="progress"
-            fetch={(courseId) => fetchProgressTab(courseId, match.params.targetUserId)}
-            slice="courseHome"
-          >
-            <ProgressTab />
-          </TabContainer>
-        )}
-      />
-    )));
-    piralApi.registerPage(`${BASE_PATH}/course/:courseId/discussion/:path*`, () => wrapApp(() => (
-      <TabContainer tab="courseware" fetch={fetchCourse} slice="courseware">
-        <CourseExit />
-      </TabContainer>
-    )));
-    piralApi.registerPage([
-      `${BASE_PATH}/course/:courseId/:sequenceId/:unitId`,
-      `${BASE_PATH}/course/:courseId/:sequenceId`,
-      `${BASE_PATH}/course/:courseId`,
-    ], () => wrapApp(() => (
-      <CoursewareContainer />
-    )));
-  },
-
-};
-
-export default piletSpec;
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/home`, () => wrapApp(() => (
+    <TabContainer tab="outline" fetch={fetchOutlineTab} slice="courseHome">
+      <OutlineTab />
+    </TabContainer>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/live`, () => wrapApp(() => (
+    <TabContainer tab="lti_live" fetch={fetchLiveTab} slice="courseHome">
+      <LiveTab />
+    </TabContainer>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/dates`, () => wrapApp(() => (
+    <TabContainer tab="dates" fetch={fetchDatesTab} slice="courseHome">
+      <DatesTab />
+    </TabContainer>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/discussion/:path*`, () => wrapApp(() => (
+    <TabContainer tab="discussion" fetch={fetchDiscussionTab} slice="courseHome">
+      <DiscussionTab />
+    </TabContainer>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/progress`, () => wrapApp(() => (
+    <TabContainer
+      tab="progress"
+      fetch={(courseId) => fetchProgressTab(courseId)}
+      slice="courseHome"
+    >
+      <ProgressTab />
+    </TabContainer>
+  )));
+  piralApi.registerPage(`${BASE_PATH}/course/:courseId/discussion/:path*`, () => wrapApp(() => (
+    <TabContainer tab="courseware" fetch={fetchCourse} slice="courseware">
+      <CourseExit />
+    </TabContainer>
+  )));
+  piralApi.registerPage([
+    `${BASE_PATH}/course/:courseId/:sequenceId/:unitId`,
+    `${BASE_PATH}/course/:courseId/:sequenceId`,
+    `${BASE_PATH}/course/:courseId`,
+  ], () => wrapApp(() => (
+    <CoursewareContainer />
+  )));
+}
