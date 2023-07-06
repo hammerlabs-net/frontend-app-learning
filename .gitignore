@@ -23,3 +23,4 @@ module.config.js
 
 # Local environment overrides
 .env.private
+package-lock.json
