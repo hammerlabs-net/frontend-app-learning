@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 
-import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Button } from '@edx/paragon';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import { getConfig } from '../../../data/api';
 import CourseCelebration from './CourseCelebration';
 import CourseInProgress from './CourseInProgress';
 import CourseNonPassing from './CourseNonPassing';

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { getConfig } from '@edx/frontend-platform';
 import { useToggle } from '@edx/paragon';
+import { getConfig } from '../data/api';
 
 import { CourseTabsNavigation } from '../course-tabs';
 import { useModel } from '../generic/model-store';

@@ -1,9 +1,8 @@
 import React from 'react';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { getConfig } from '@edx/frontend-platform';
 import { Hyperlink } from '@edx/paragon';
 
+import { getAuthenticatedUser, getConfig } from '../data/api';
 import messages from '../courseware/course/course-exit/messages';
 
 const IntlDashboardLink = ({ intl }) => (

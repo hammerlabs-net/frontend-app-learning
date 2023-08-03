@@ -1,5 +1,5 @@
-import { getConfig, camelCaseObject } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
+import { camelCaseObject } from '@edx/frontend-platform';
+import { getConfig, getAuthenticatedHttpClient } from '../../../../data/api';
 
 function filterRecommendationsList(
   {

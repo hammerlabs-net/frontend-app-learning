@@ -15,8 +15,7 @@ import {
   useWindowSize,
 } from '@edx/paragon';
 import { CheckCircle } from '@edx/paragon/icons';
-import { getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { getConfig, getAuthenticatedUser } from '../../../data/api';
 
 import CelebrationMobile from './assets/celebration_456x328.gif';
 import CelebrationDesktop from './assets/celebration_750x540.gif';

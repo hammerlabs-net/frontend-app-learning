@@ -1,5 +1,5 @@
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { getAuthenticatedUser } from '../../../data/api';
 
 import { postCelebrationComplete } from './data/api';
 import { clearLocalStorage, getLocalStorage, setLocalStorage } from '../../../data/localStorage';

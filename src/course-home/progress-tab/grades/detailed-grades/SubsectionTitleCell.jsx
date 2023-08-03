@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Collapsible, Icon, Row } from '@edx/paragon';
 import {
   ArrowDropDown, ArrowDropUp, Blocked, Info,
 } from '@edx/paragon/icons';
 
+import { getAuthenticatedUser } from '../../../../data/api';
 import messages from '../messages';
 import { useModel } from '../../../../generic/model-store';
 import ProblemScoreDrawer from './ProblemScoreDrawer';

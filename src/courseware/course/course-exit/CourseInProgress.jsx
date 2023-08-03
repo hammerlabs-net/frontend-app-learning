@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { Alert, Button } from '@edx/paragon';
-import { getConfig } from '@edx/frontend-platform';
 
 import { useModel } from '../../../generic/model-store';
-
+import { getConfig, getAuthenticatedUser } from '../../../data/api';
 import CatalogSuggestion from './CatalogSuggestion';
 import DashboardFootnote from './DashboardFootnote';
 import messages from './messages';

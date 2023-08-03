@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { getConfig } from '@edx/frontend-platform';
+import { getConfig } from '../../data/api';
 
 const LmsHtmlFragment = ({
   className,

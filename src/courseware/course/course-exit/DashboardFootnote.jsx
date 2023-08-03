@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import {
   FormattedMessage, injectIntl, intlShape,
 } from '@edx/frontend-platform/i18n';
 import { Hyperlink } from '@edx/paragon';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-import { getConfig } from '@edx/frontend-platform';
 
+import { getConfig, getAuthenticatedUser } from '../../../data/api';
 import { useModel } from '../../../generic/model-store';
 
 import Footnote from './Footnote';

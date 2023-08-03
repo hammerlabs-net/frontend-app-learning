@@ -1,11 +1,11 @@
-import { ensureConfig, getConfig } from '@edx/frontend-platform';
+import { ensureConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import React, { useContext } from 'react';
 import { useModel } from '../../../../../generic/model-store';
 import SidebarBase from '../../common/SidebarBase';
 import SidebarContext from '../../SidebarContext';
 import { ID } from './DiscussionsTrigger';
-
+import { getConfig } from '../../../../../data/api';
 import messages from './messages';
 
 ensureConfig(['DISCUSSIONS_MFE_BASE_URL']);

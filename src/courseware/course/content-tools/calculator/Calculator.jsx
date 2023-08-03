@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Collapsible } from '@edx/paragon';
-import { getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 import {
   FormattedMessage, injectIntl, intlShape,
 } from '@edx/frontend-platform/i18n';
@@ -10,6 +8,7 @@ import {
   faCalculator, faQuestionCircle, faTimesCircle, faEquals,
 } from '@fortawesome/free-solid-svg-icons';
 import messages from './messages';
+import { getConfig, getAuthenticatedHttpClient } from '../../../../data/api';
 
 class Calculator extends Component {
   constructor(props) {

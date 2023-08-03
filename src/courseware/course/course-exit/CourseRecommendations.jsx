@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect } from 'react';
-import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import {
   FormattedMessage, injectIntl, intlShape, defineMessages,
 } from '@edx/frontend-platform/i18n';
@@ -12,6 +10,7 @@ import {
 } from '@edx/paragon';
 import PropTypes from 'prop-types';
 import truncate from 'truncate-html';
+import { getConfig, getAuthenticatedUser } from '../../../data/api';
 import { useModel } from '../../../generic/model-store';
 import fetchCourseRecommendations from './data/thunks';
 import { FAILED, LOADED, LOADING } from './data/slice';

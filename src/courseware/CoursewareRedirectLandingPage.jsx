@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, useRouteMatch } from 'react-router';
-import { getConfig } from '@edx/frontend-platform';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
 import { PageRoute } from '@edx/frontend-platform/react';
 
 import queryString from 'query-string';
 import PageLoading from '../generic/PageLoading';
+import { getConfig } from '../data/api';
 
 import DecodePageRoute from '../decode-page-route';
 

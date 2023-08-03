@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Hyperlink } from '@edx/paragon';
 
+import { getAuthenticatedUser } from '../../../data/api';
 import messages from './messages';
 import { useModel } from '../../../generic/model-store';
 

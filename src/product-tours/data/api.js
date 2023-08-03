@@ -1,5 +1,5 @@
-import { camelCaseObject, getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
+import { camelCaseObject } from '@edx/frontend-platform';
+import { getAuthenticatedHttpClient, getConfig } from '../../data/api';
 
 export async function getTourData(username) {
   const url = `${getConfig().LMS_BASE_URL}/api/user_tours/v1/${username}`;

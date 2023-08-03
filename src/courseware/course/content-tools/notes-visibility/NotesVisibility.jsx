@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 import {
   injectIntl, intlShape,
 } from '@edx/frontend-platform/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import messages from './messages';
+import { getConfig, getAuthenticatedHttpClient } from '../../../../data/api';
 
 function toggleNotes() {
   const iframe = document.getElementById('unit-iframe');

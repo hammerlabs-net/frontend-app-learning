@@ -1,8 +1,7 @@
 import { Factory } from 'rosie';
 import MockAdapter from 'axios-mock-adapter';
 
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
-import { getConfig } from '@edx/frontend-platform';
+import { getAuthenticatedHttpClient, getConfig } from '../../data/api';
 
 import * as thunks from './thunks';
 

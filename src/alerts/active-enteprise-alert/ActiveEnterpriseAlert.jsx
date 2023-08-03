@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Alert, Hyperlink } from '@edx/paragon';
 import { WarningFilled } from '@edx/paragon/icons';
 
-import { getConfig } from '@edx/frontend-platform';
+import { getConfig } from '../../data/api';
 import genericMessages from './messages';
 
 const ActiveEnterpriseAlert = ({ intl, payload }) => {

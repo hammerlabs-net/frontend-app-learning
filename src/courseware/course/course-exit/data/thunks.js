@@ -1,4 +1,4 @@
-import { logError } from '@edx/frontend-platform/logging';
+import { logError } from '../../../../data/api';
 
 import {
   fetchCourseRecommendationsFailure,

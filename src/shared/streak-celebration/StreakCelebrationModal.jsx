@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { camelCaseObject, getConfig } from '@edx/frontend-platform';
+import { camelCaseObject } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 import {
   FormattedMessage, injectIntl, intlShape,
 } from '@edx/frontend-platform/i18n';
@@ -13,6 +12,7 @@ import {
 } from '@edx/paragon';
 import { useDispatch } from 'react-redux';
 import { UpgradeNowButton } from '../../generic/upgrade-button';
+import { getAuthenticatedHttpClient, getConfig } from '../../data/api';
 
 import { useModel } from '../../generic/model-store';
 import StreakMobileImage from './assets/Streak_mobile.png';

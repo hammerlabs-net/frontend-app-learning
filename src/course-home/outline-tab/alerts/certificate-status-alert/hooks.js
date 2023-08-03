@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { getConfig } from '@edx/frontend-platform';
+import { getConfig } from '../../../../data/api';
 import { useAlert } from '../../../../generic/user-messages';
 import { useModel } from '../../../../generic/model-store';
 

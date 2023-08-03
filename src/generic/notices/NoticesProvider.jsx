@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getConfig } from '@edx/frontend-platform';
 import PropTypes from 'prop-types';
 import { getNotices } from './api';
+import { getConfig } from '../../data/api';
 /**
  * This component uses the platform-plugin-notices plugin to function.
  * If the user has an unacknowledged notice, they will be rerouted off

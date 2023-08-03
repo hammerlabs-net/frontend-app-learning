@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import {
@@ -13,6 +12,7 @@ import { ChatBubbleOutline } from '@edx/paragon/icons';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import messages from './messages';
+import { getAuthenticatedUser } from '../../../data/api';
 
 const ChatTrigger = ({
   intl,

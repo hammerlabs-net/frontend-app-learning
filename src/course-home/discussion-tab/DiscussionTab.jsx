@@ -1,10 +1,10 @@
-import { getConfig } from '@edx/frontend-platform';
 import { injectIntl } from '@edx/frontend-platform/i18n';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { generatePath, useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { useIFrameHeight, useIFramePluginEvents } from '../../generic/hooks';
+import { getConfig } from '../../data/api';
 
 const DiscussionTab = () => {
   const { courseId } = useSelector(state => state.courseHome);

@@ -1,5 +1,5 @@
-import { getConfig } from '@edx/frontend-platform';
 import { stringify } from 'query-string';
+import { getConfig } from '../../../../data/api';
 
 export const iframeParams = {
   show_title: 0,

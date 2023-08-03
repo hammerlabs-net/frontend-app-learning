@@ -6,6 +6,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import reduxConfig from './data/module';
+import { configure } from './data/api';
 
 import DiscussionTab from './course-home/discussion-tab/DiscussionTab';
 
@@ -33,6 +34,8 @@ const BASE_PATH = '/learning';
 
 // eslint-disable-next-line import/prefer-default-export
 export function setup(piralApi) {
+  configure(piralApi);
+
   piralApi.mergeMessages(appMessages);
 
   piralApi.mergeConfig({
@@ -60,16 +63,8 @@ export function setup(piralApi) {
     PROCTORED_EXAM_RULES_URL: process.env.PROCTORED_EXAM_RULES_URL || null,
   }, 'LearnerAppConfig');
 
-  const platformApi = {
-    getAuthenticatedUser: piralApi.getAuthenticatedUser,
-    getAuthenticatedHttpClient: piralApi.getAuthenticatedHttpClient,
-    getConfig: piralApi.getConfig,
-    logInfo: piralApi.logInfo,
-    logError: piralApi.logError,
-  };
-
   const wrapApp = (pageComponent) => (
-    <DynamicModuleLoader modules={[reduxConfig(platformApi)]}>
+    <DynamicModuleLoader modules={[reduxConfig()]}>
       <PathFixesProvider>
         <NoticesProvider>
           <UserMessagesProvider>

@@ -1,9 +1,8 @@
-import { getConfig } from '@edx/frontend-platform';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { StrictDict, useKeyedState } from '@edx/react-unit-test-utils';
-import { logError } from '@edx/frontend-platform/logging';
+import { getConfig, logError } from '../../../../../data/api';
 
 import { fetchCourse } from '../../../../data';
 import { processEvent } from '../../../../../course-home/data/thunks';

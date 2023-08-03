@@ -1,10 +1,10 @@
 import React from 'react';
-import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape, FormattedMessage } from '@edx/frontend-platform/i18n';
 import { getLoginRedirectUrl } from '@edx/frontend-platform/auth';
 import { Alert, Hyperlink } from '@edx/paragon';
 import { WarningFilled } from '@edx/paragon/icons';
 
+import { getConfig } from '../../data/api';
 import genericMessages from '../../generic/messages';
 
 const LogistrationAlert = ({ intl }) => {

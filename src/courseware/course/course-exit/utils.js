@@ -1,5 +1,5 @@
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { getAuthenticatedUser } from '../../../data/api';
 
 import messages from './messages';
 import { useModel } from '../../../generic/model-store';

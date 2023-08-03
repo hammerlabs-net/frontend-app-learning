@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { logError } from '@edx/frontend-platform/logging';
 import { StrictDict, useKeyedState } from '@edx/react-unit-test-utils';
 import { getExamAccess, fetchExamAccess, isExam } from '@edx/frontend-lib-special-exams';
+import { logError } from '../../../../../data/api';
 
 export const stateKeys = StrictDict({
   accessToken: 'accessToken',

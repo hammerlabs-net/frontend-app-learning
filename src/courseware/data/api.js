@@ -1,7 +1,7 @@
-import { camelCaseObject, getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { camelCaseObject } from '@edx/frontend-platform';
 import { getTimeOffsetMillis } from '../../course-home/data/api';
 import { appendBrowserTimezoneToUrl } from '../../utils';
+import { getConfig, getAuthenticatedHttpClient, getAuthenticatedUser } from '../../data/api';
 
 export function normalizeLearningSequencesData(learningSequencesData) {
   const models = {

@@ -1,4 +1,4 @@
-import { ensureConfig, getConfig } from '@edx/frontend-platform';
+import { ensureConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Icon } from '@edx/paragon';
 import { QuestionAnswer } from '@edx/paragon/icons';
@@ -10,6 +10,7 @@ import { getCourseDiscussionTopics } from '../../../../data/thunks';
 import SidebarTriggerBase from '../../common/TriggerBase';
 import SidebarContext from '../../SidebarContext';
 import messages from './messages';
+import { getConfig } from '../../../../../data/api';
 
 ensureConfig(['DISCUSSIONS_MFE_BASE_URL']);
 export const ID = 'DISCUSSIONS';

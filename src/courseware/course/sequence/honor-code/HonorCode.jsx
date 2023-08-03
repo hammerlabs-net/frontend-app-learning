@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { getConfig, history } from '@edx/frontend-platform';
-import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { history } from '@edx/frontend-platform';
 import { FormattedMessage, injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { ActionRow, Alert, Button } from '@edx/paragon';
 
+import { getConfig, getAuthenticatedUser } from '../../../../data/api';
 import { useModel } from '../../../../generic/model-store';
 import { saveIntegritySignature } from '../../../data';
 import messages from './messages';
