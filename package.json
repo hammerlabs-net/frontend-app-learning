@@ -12,6 +12,8 @@
   "scripts": {
     "build": "pilet build",
     "start": "pilet debug",
+    "package": "pilet package",
+    "publish": "pilet build && pilet package && pilet publish",
     "upgrade": "pilet upgrade",
     "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
@@ -33,19 +35,13 @@
     "name": "frontend-app-shell"
   },
   "files": [
-    "/dist"
+    "./dist"
   ],
   "bugs": {
     "url": "https://github.com/openedx/frontend-app-learning/issues"
   },
   "dependencies": {
     "@edx/frontend-lib-special-exams": "npm:@hammerlabs-net/frontend-lib-special-exams@1.2.0-alpha",
-    "@edx/react-unit-test-utils": "npm:@hammerlabs-net/react-unit-test-utils@1.0.0-alpha",
-    "@fortawesome/fontawesome-svg-core": "1.3.0",
-    "@fortawesome/free-brands-svg-icons": "5.15.4",
-    "@fortawesome/free-regular-svg-icons": "5.15.4",
-    "@fortawesome/free-solid-svg-icons": "5.15.4",
-    "@fortawesome/react-fontawesome": "0.1.18",
     "@popperjs/core": "2.11.8",
     "@reduxjs/toolkit": "1.9.5",
     "classnames": "2.3.2",
@@ -65,6 +61,7 @@
     "util": "0.12.5"
   },
   "devDependencies": {
+    "@edx/react-unit-test-utils": "npm:@hammerlabs-net/react-unit-test-utils@1.0.0-alpha",
     "@edx/reactifex": "2.1.1",
     "@pact-foundation/pact": "^11.0.2",
     "@testing-library/jest-dom": "5.16.5",
@@ -81,6 +78,11 @@
     "rosie": "2.1.0"
   },
   "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.3.0",
+    "@fortawesome/free-brands-svg-icons": "5.15.4",
+    "@fortawesome/free-regular-svg-icons": "5.15.4",
+    "@fortawesome/free-solid-svg-icons": "5.15.4",
+    "@fortawesome/react-fontawesome": "0.1.18",
     "@edx/frontend-platform": "^5.3.0",
     "@edx/browserslist-config": "1.2.0",
     "@edx/paragon": "^21.1.2",
